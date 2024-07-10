@@ -30,7 +30,7 @@
         end_date = params.get('end_date') || '';
         selectedBoardList = params.get('board') ? params.get('board').split(',') : [];
 
-        const apiUrl = 'http://localhost:8000/';
+        const apiUrl = 'https://searchapi.betatester772.dev/';
 
         if (!searchQuery) {
             window.location = '/';
