@@ -21,6 +21,8 @@
     let dateSelectionExpanded = false;
     let dateOption = '1년';
 
+    const apiUrl = 'https://searchapi.betatester772.dev/';
+
     onMount(() => {
         setDateRange('1년');
         const params = new URLSearchParams(window.location.search);
@@ -30,7 +32,6 @@
         end_date = params.get('end_date') || '';
         selectedBoardList = params.get('board') ? params.get('board').split(',') : [];
 
-        const apiUrl = 'https://searchapi.betatester772.dev/';
 
         if (!searchQuery) {
             window.location = '/';
@@ -205,7 +206,7 @@
             wordCloudVisible[item.idx] = true;
         } else {
             try {
-                const response = await fetch(`http://localhost:8000/wordcloud/?idx=${item.idx}`, {
+                const response = await fetch(apiUrl + `wordcloud/?idx=${item.idx}`, {
                     method: 'get',
                     headers: {
                         'accept': 'application/json',
